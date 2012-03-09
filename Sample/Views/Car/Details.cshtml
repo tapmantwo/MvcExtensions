@@ -1,0 +1,42 @@
+﻿@model Sample.Models.Car
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Car</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Manufacturer)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Manufacturer)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Model)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Model)
+    </div>
+    
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.SelectedFeatures)
+    </div>
+    <div class="display-field">
+        <ul>
+        @foreach(var feature in Model.SelectedFeatures)
+            {<li>
+            {@feature.Name}
+            </li>}
+        </ul>
+    </div>
+
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
